@@ -130,7 +130,7 @@ p { margin: 0 0 0.9em; }
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 28%;
   border-radius: 50%;
   border: 8px solid var(--card);
   box-shadow: 0 0 0 3px var(--sun);
