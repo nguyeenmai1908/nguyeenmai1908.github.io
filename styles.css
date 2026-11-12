@@ -235,6 +235,42 @@ p { margin: 0 0 0.9em; }
 }
 .stop-link:hover { text-decoration-thickness: 5px; }
 .stop-media { margin: 0; }
+.has-badge { position: relative; }
+.award-badge {
+  position: absolute;
+  bottom: 18px;
+  left: -8px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+  background: var(--sun);
+  color: var(--ink);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.1;
+  border-radius: 4px 999px 999px 4px;
+  box-shadow: 0 6px 14px rgba(23, 50, 77, 0.25);
+}
+.award-badge::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: none;
+  background: var(--ink);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.74V22l4-2 4 2v-7.26A7 7 0 0 0 12 2Zm0 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.74V22l4-2 4 2v-7.26A7 7 0 0 0 12 2Zm0 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.award-badge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  border-top: 8px solid #b8841f;
+  border-left: 8px solid transparent;
+}
 .stop-media img {
   width: 100%;
   aspect-ratio: 16 / 10;
