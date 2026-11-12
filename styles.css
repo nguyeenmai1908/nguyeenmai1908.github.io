@@ -455,3 +455,70 @@ p { margin: 0 0 0.9em; }
   .step-node { grid-row: 1 / span 3; }
   .step-proof { justify-self: start; }
 }
+
+/* Stat grid on project cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin: 0 0 1rem;
+  padding: 0.85rem 0;
+  border-block: 1px solid var(--line);
+}
+.stats div { min-width: 0; }
+.stats dt { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.1rem; }
+.stats dd { margin: 0; font-weight: 600; font-size: 0.93rem; line-height: 1.35; }
+
+/* Sticky top bar with the current section marked */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  box-shadow: 0 0 0 100vmax var(--paper);
+  clip-path: inset(0 -100vmax);
+  transition: box-shadow 0.2s;
+}
+.topbar.is-stuck {
+  box-shadow: 0 0 0 100vmax var(--paper), 0 1px 0 100vmax var(--line);
+}
+.topbar ul a[aria-current] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--sun);
+  text-underline-offset: 6px;
+}
+[id] { scroll-margin-top: 80px; }
+
+/* Jump strip under the hero */
+.jump {
+  max-width: var(--page);
+  margin: -1.5rem auto 3rem;
+  padding: 0 1.5rem;
+}
+.jump-label { font-weight: 600; margin-bottom: 0.6rem; }
+.jump ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.45rem 0.95rem 0.45rem 0.75rem;
+  background: var(--card);
+  border-radius: 12px;
+  border-left: 5px solid var(--stop);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.jump a:hover { background: color-mix(in srgb, var(--stop) 15%, white); }
+
+@media (max-width: 600px) {
+  .jump { padding: 0 1rem; margin-top: -1rem; }
+  .jump ul { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.4rem; scroll-snap-type: x proximity; }
+  .jump li { flex: none; scroll-snap-align: start; }
+  .topbar ul { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; }
+  .topbar ul li { flex: none; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
