@@ -376,3 +376,65 @@ p { margin: 0 0 0.9em; }
   .tools div { grid-template-columns: 1fr; gap: 0.1rem; }
   .two-col { grid-template-columns: 1fr; }
 }
+
+/* Results line on project cards */
+.results {
+  font-size: 0.97rem;
+  border-top: 2px dashed color-mix(in srgb, var(--stop) 45%, white);
+  padding-top: 0.75rem;
+}
+.results strong { font-weight: 600; }
+
+.hero-where {
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: -0.2rem;
+}
+
+.block-intro { color: var(--ink-soft); max-width: var(--measure); margin-top: -0.75rem; margin-bottom: 2rem; }
+
+/* How I work: four stops joined by stepping stones */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+.steps li { position: relative; }
+.step-node {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--stop);
+  border: 4px solid var(--card);
+  box-shadow: 0 0 0 2px var(--stop);
+  margin-bottom: 1rem;
+}
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 48px;
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  background: var(--stop);
+  opacity: 0.8;
+  transform: rotate(14deg);
+  box-shadow: 24px -4px 0 var(--stop), 48px 3px 0 var(--stop), 72px -2px 0 var(--stop), 96px 2px 0 var(--stop);
+}
+.steps h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+.steps p { color: var(--ink-soft); font-size: 0.97rem; }
+
+@media (max-width: 860px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps li::after { display: none; }
+}
+@media (max-width: 600px) {
+  .steps { grid-template-columns: 1fr; gap: 1.5rem; }
+  .steps li { display: grid; grid-template-columns: 26px 1fr; column-gap: 1rem; }
+  .step-node { grid-row: span 2; margin: 0.15rem 0 0; }
+}
